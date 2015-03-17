@@ -1,0 +1,179 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Scamp</title>
+    <link href="App/Stylesheets/vendor.css" rel="stylesheet">
+
+    <link href="/App/Stylesheets/scamp.css" rel="stylesheet"> 
+    <meta name="scamp/config/environment" content="%7B%22modulePrefix%22%3A%22scamp%22%2C%22environment%22%3A%22development%22%2C%22baseURL%22%3A%22/%22%2C%22locationType%22%3A%22hash%22%2C%22EmberENV%22%3A%7B%22FEATURES%22%3A%7B%7D%7D%2C%22APP%22%3A%7B%22name%22%3A%22scamp%22%2C%22version%22%3A%220.1.0.76c17d2e%22%7D%2C%22contentSecurityPolicy%22%3A%7B%22default-src%22%3A%22%27none%27%22%2C%22script-src%22%3A%22%27self%27%22%2C%22font-src%22%3A%22%27self%27%22%2C%22connect-src%22%3A%22%27self%27%22%2C%22img-src%22%3A%22%27self%27%20http%3A//placekitten.com%22%2C%22style-src%22%3A%22%27self%27%20%27unsafe-inline%27%22%2C%22media-src%22%3A%22%27self%27%22%7D%2C%22torii%22%3A%7B%22providers%22%3A%7B%22azure-oauth2%22%3A%7B%22apiKey%22%3A%22603b6934-f721-47ae-9037-7b1027ef6389%22%2C%22redirect_uri%22%3A%22https%3A//scamp.azurewebsites.net%22%2C%22state%22%3A%2288e491b5-5009-4fa9-8d66-9d61bdb2007e%22%7D%7D%7D%2C%22contentSecurityPolicyHeader%22%3A%22Content-Security-Policy-Report-Only%22%2C%22exportApplicationGlobal%22%3Atrue%7D">
+ 
+</head>
+<body ng-app="todoApp" ng-controller="homeCtrl" role="document">
+    <!--header-->
+    <div class="row header">
+        <div class="col-xs-12">
+            <div class="user pull-right">
+                <div class="item dropdown">
+                    <a {{action "toggleUserDropdown" target=view}} class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <img src="http://placekitten.com/g/40/40">
+                    </a>
+                    <ul {{bind-attr class="view.userDropdownOpen:visible :dropdown-menu :dropdown-menu-right"}}>
+                        <li class="dropdown-header">
+                            Felix Rieseberg
+                        </li>
+                        <li class="divider"></li>
+                        <li class="link">
+                            <a href="#">
+                                Profile
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="#">
+                                Menu Item
+                            </a>
+                        </li>
+                        <li class="link">
+                            <a href="#">
+                                Menu Item
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li class="link">
+                            <a href="#">
+                                Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item dropdown">
+                    <a {{action "toggleNotificationsDropdown" target=view}} class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-bell-o"></i>
+                    </a>
+                    <ul {{bind-attr class="view.notificationsDropdownOpen:visible :dropdown-menu :dropdown-menu-right"}}>
+                        <li class="dropdown-header">
+                            Notifications
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#">Server Down!</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="meta">
+                <div class="page">
+                    {{currentRouteName}}
+                </div>
+                <div class="breadcrumb-links">
+                    {{sc-breadcrumb}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--sidebar-->
+
+    <div id="sidebar-wrapper">
+        <ul class="sidebar">
+            <li class="sidebar-main">
+                <a {{action "toggleSidebar" target=view}}>
+                    Scamp
+                    <span class="menu-icon glyphicon glyphicon-transfer"></span>
+                </a>
+            </li>
+            <li class="sidebar-title"><span>NAVIGATION</span></li>
+            <li class="sidebar-list">
+                {{#link-to "dashboard"}}Dashboard <span class="menu-icon fa fa-tachometer"></span>{{/link-to}}
+            </li>
+            <li class="sidebar-list">
+                {{#link-to "resources"}}Resources <span class="menu-icon fa fa-cloud"></span>{{/link-to}}
+            </li>
+            <li class="sidebar-list">
+                {{#link-to "logs"}}Logs <span class="menu-icon fa fa-list"></span>{{/link-to}}
+            </li>
+            <li class="sidebar-list">
+                {{#link-to "settings"}}Settings <span class="menu-icon fa fa-cog"></span>{{/link-to}}
+            </li>
+        </ul>
+        <div class="sidebar-footer">
+            <div class="col-xs-4">
+                <a href="https://github.com/felixrieseberg/ScampFrontend" target="_blank">
+                    Github
+                </a>
+            </div>
+            <div class="col-xs-4">
+                <a href="http://www.felixrieseberg.com" target="_blank">
+                    About
+                </a>
+            </div>
+            <div class="col-xs-4">
+                <a href="#">
+                    Support
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!--index-->
+        <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse"
+                            data-target=".navbar-collapse">
+
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/Home">ADAL JS Sample</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li ng-class="{ active: isActive('/Home') }"><a href="#/Home">Home</a></li>
+                        <li ng-class="{ active: isActive('/TodoList') }"><a href="#/TodoList">Todo List</a></li>
+                        <li ng-class="{ active: isActive('/UserData') }"><a href="#/UserData" ng-show="userInfo.isAuthenticated">User</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="btn btn-link" ng-show="userInfo.isAuthenticated" ng-click="logout()">Logout</a></li>
+                        <li><a class="btn btn-link" ng-hide=" userInfo.isAuthenticated" ng-click="login()">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <br />
+        <div class="container" role="main">
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1" style="background-color:azure">
+                    <div class="page-header">
+                        <h1>Todo List</h1>
+                    </div>
+                    <p>This sample demonstrates how to take advantage of ADAL JS for adding Azure AD authentication to your AngularJS apps.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-10 col-xs-offset-1">
+                    <div ng-view class="panel-body">
+
+                    </div>
+                </div>
+            </div>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+            <script src="https://code.angularjs.org/1.2.25/angular-route.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+            <script src="App/Scripts/adal.js"></script>
+            <script src="App/Scripts/adal-angular.js"></script>
+            <script src="App/Scripts/app.js"></script>
+            <script src="App/Scripts/homeCtrl.js"></script>
+            <script src="App/Scripts/userDataCtrl.js"></script>
+            <script src="App/Scripts/todoListCtrl.js"></script>
+            <script src="App/Scripts/todoListSvc.js"></script>
+
+            <script src="/App/Scripts/vendor.js"></script>
+
+            <script src="/App/Scripts/scamp.js"></script>
+
+</body>
+</html>
