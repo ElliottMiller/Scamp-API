@@ -13,7 +13,14 @@ namespace TodoSPA.DAL
         public TodoListServiceContext()
             : base("TodoListServiceContext")
         { }
+
         public DbSet<Todo> Todoes { get; set; }
+
+        public DbSet<Group> Groups { get; set; }
+
+        public DbSet<Resource> Resources { get; set; }
+
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

@@ -1,5 +1,5 @@
 ﻿'use strict';
-angular.module('todoApp')
+angular.module('scamp')
 .controller('homeCtrl', ['$scope', 'adalAuthenticationService','$location', function ($scope, adalService, $location) {
     $scope.login = function () {
         adalService.login();

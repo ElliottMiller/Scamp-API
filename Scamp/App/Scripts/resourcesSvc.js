@@ -1,23 +1,23 @@
 ﻿'use strict';
 angular.module('scamp')
-.factory('todoListSvc', ['$http', function ($http) {
+.factory('resourcesSvc', ['$http', function ($http) {
     return {
         getItems : function(){
-            return $http.get('/api/TodoList');
+            return $http.get('/api/Resources');
         },
         getItem : function(id){
-            return $http.get('/api/TodoList/' + id);
+            return $http.get('/api/Resources/' + id);
         },
         postItem : function(item){
-            return $http.post('/api/TodoList/',item);
+            return $http.post('/api/Resources/', item);
         },
         putItem : function(item){
-            return $http.put('/api/TodoList/', item);
+            return $http.put('/api/Resources/', item);
         },
         deleteItem : function(id){
             return $http({
                 method: 'DELETE',
-                url: '/api/TodoList/' + id
+                url: '/api/Resources/' + id
             });
         }
     };

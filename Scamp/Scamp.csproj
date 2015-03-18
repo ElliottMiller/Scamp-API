@@ -111,13 +111,16 @@
     <Content Include="App\Scripts\homeCtrl.js" />
     <Content Include="App\Scripts\indexCtrl.js" />
     <Content Include="App\Scripts\scamp.js" />
+    <Content Include="App\Scripts\resourcesCtrl.js" />
     <Content Include="App\Scripts\todoListCtrl.js" />
+    <Content Include="App\Scripts\resourcesSvc.js" />
     <Content Include="App\Scripts\todoListSvc.js" />
     <Content Include="App\Scripts\userDataCtrl.js" />
     <Content Include="App\Scripts\vendor.js" />
     <Content Include="App\Stylesheets\scamp.css" />
     <Content Include="App\Stylesheets\vendor.css" />
     <Content Include="App\Views\Home.html" />
+    <Content Include="App\Views\Resources.html" />
     <Content Include="App\Views\TodoList.html" />
     <Content Include="App\Views\UserData.html" />
     <Content Include="Global.asax" />
@@ -127,6 +130,8 @@
   <ItemGroup>
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ResourcesController.cs" />
+    <Compile Include="Controllers\GroupsController.cs" />
     <Compile Include="Controllers\TodoListController.cs" />
     <Compile Include="DAL\TodoListServiceContext.cs" />
     <Compile Include="DAL\TodoListServiceInitializer.cs" />

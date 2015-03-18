@@ -1,5 +1,5 @@
 ﻿'use strict';
-angular.module('todoApp')
+angular.module('scamp')
 .controller('todoListCtrl', ['$scope', '$location', 'todoListSvc', 'adalAuthenticationService', function ($scope, $location, todoListSvc, adalService) {
     $scope.error = "";
     $scope.loadingMessage = "Loading...";
