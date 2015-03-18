@@ -10125,7 +10125,7 @@ body {
 	height: 100%; padding-left: 70px;
 }
 #sidebar-wrapper {
-	left: -30px; width: 250px; height: 100%; margin-left: -150px; position: fixed; z-index: 999;
+	width: 250px; height: 100%; position: fixed; z-index: 999;
 }
 #page-wrapper {
 	transition:0.4s;
