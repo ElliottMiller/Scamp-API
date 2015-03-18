@@ -5,17 +5,17 @@ angular.module('scamp', ['ngRoute','AdalAngular'])
     $routeProvider.when("/Home", {
         controller: "homeCtrl",
         templateUrl: "/App/Views/Home.html",
-    }).when("/Dashboard", {
+    }).when("/dashboard", {
         controller: "dashboardCtrl",
         templateUrl: "/App/Views/Dashboard.html",
         requireADLogin: true,
-    }).when("/Resources", {
+    }).when("/resources", {
         controller: "resourcesCtrl",
         templateUrl: "/App/Views/Resources.html",
-    }).when("/Logs", {
+    }).when("/logs", {
         controller: "logsCtrl",
         templateUrl: "/App/Views/Logs.html",
-    }).when("/Settings", {
+    }).when("/settings", {
         controller: "settingsCtrl",
         templateUrl: "/App/Views/Settings.html",
     }).otherwise({ redirectTo: "/Home" });
