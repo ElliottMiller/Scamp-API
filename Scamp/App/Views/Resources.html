@@ -1,0 +1,53 @@
+﻿<div ng-init="populate()">
+    <p class="error">{{error}}</p>
+    <p>{{loadingMessage}}</p>
+    <div class="panel">
+
+
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- {{partial "w-resources"}}-->
+            </div>
+
+            <div class="col-lg-4">
+                <div class="widget">
+                    <div class="widget-header">
+                        <i class="fa fa-plus"></i> Add Resource (Debug Only)
+                    </div>
+                    <div class="widget-body padding">
+                        <form class="form-horizontal">
+                            <div class="input-group">
+                                <span class="input-group-addon">Name</span>
+
+                                <span class="input-group-addon" data-ng-hide="item.edit">{{item.Name}}</span>
+                                <input data-ng-show="item.edit" class="form-control" type="text" data-ng-model="editInProgressTodo.Name" />
+
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Status</span>
+                                {{input type="text" class="form-control" placeholder="Recource's Status" value=rState}}
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Group</span>
+                                {{
+view "select"
+                            class="form-control"
+                            content=groupsLookup
+                            selection=rGroup
+                            optionValuePath="content.id"
+                            optionLabelPath="content.name"
+                            prompt="Choose a Group"
+                                }}
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">Remaining</span>
+                                {{input type="number" min="0" max="1" step="0.1" class="form-control" placeholder="Recource's Remaining Usage (0-1)" value=rRemaining}}
+                            </div>
+                            <div class="input-group">
+                                <button type="submit" {{action "addResource"}} type="button" class="btn btn-primary" id="addResource">Add Resource</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>

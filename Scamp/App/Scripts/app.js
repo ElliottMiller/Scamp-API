@@ -1,17 +1,23 @@
 ﻿'use strict';
-angular.module('todoApp', ['ngRoute','AdalAngular'])
+angular.module('scamp', ['ngRoute','AdalAngular'])
 .config(['$routeProvider', '$httpProvider', 'adalAuthenticationServiceProvider', function ($routeProvider, $httpProvider, adalProvider) {
 
     $routeProvider.when("/Home", {
         controller: "homeCtrl",
         templateUrl: "/App/Views/Home.html",
-    }).when("/TodoList", {
-        controller: "todoListCtrl",
-        templateUrl: "/App/Views/TodoList.html",
+    }).when("/Dashboard", {
+        controller: "dashboardCtrl",
+        templateUrl: "/App/Views/Dashboard.html",
         requireADLogin: true,
-    }).when("/UserData", {
-        controller: "userDataCtrl",
-        templateUrl: "/App/Views/UserData.html",
+    }).when("/Resources", {
+        controller: "resourcesCtrl",
+        templateUrl: "/App/Views/Resources.html",
+    }).when("/Logs", {
+        controller: "logsCtrl",
+        templateUrl: "/App/Views/Logs.html",
+    }).when("/Settings", {
+        controller: "settingsCtrl",
+        templateUrl: "/App/Views/Settings.html",
     }).otherwise({ redirectTo: "/Home" });
 
     adalProvider.init(
